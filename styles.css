@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Manrope', sans-serif; 
+}
+
+header {
+  font-family: Manrope;
+  display: flex;
+  margin-left: 4.5vw;
+  padding: 1%;
+}
+
+@media (max-width: 768px) {
+  header {
+    margin-right: 0%; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+}
+
+.container {
+  width: 90%; 
+  margin: 0 auto; 
+  padding: 20px; 
+}
+
+.services {
+  font-family: Manrope;
+  display: flex;
+  flex-direction: column;
+  gap: 6%;
+}
+
+.servicesP {
+  display: grid;
+  grid-template-columns: 1fr; 
+  column-gap: 5%;
+  grid-template-areas:
+    "image"
+    "types"
+    "info"
+    "special"; 
+}
+
+
+@media (min-width: 768px) {
+  .servicesP {
+    grid-template-columns: 36.25rem auto 16.875rem;
+    grid-template-areas:
+      "image types special" 
+      "image info special"; 
+  }
+}
+
+.servicesPImg {
+  grid-area: image;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 200%;
+  font-weight: 600;
+  line-height: 130%;
+  border-radius: 3%;
+}
+
+.servicesP .servicesPImg {
+  padding: 10%  12% 0px 5%;
+  background: url('./Img1.jpg') no-repeat;
+  background-size: cover;
+  height: 430px;
+}
+
+.servicesVid {
+  grid-area: types;
+}
+
+.servicesV {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.servicesV:last-child{
+  margin-bottom: 0px;
+}
+
+.servicesVN {
+  color: #000;
+  font-size: 140%;
+  line-height: 150%; 
+}
+
+.servicesVN.long-type {
+  max-width: 30%;
+}
+
+.services-VC.long-type {
+  white-space: normal;
+  text-align: right;
+  flex-basis: 6%;
+}
+
+.servicesVC {
+  color: #000;
+  font-size: 140%;
+  line-height: 130%; 
+  font-weight: 600;
+  white-space: nowrap;
+}
+span.servicesVL{
+	size: 100%;
+	color:white;
+}
+.servicesVL {
+  flex: 1 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 1px;
+  margin: 0 4%;
+  min-width: 5%;
+}
+
+.servicesI {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+  gap: 10%;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 140%;
+  line-height: 150%; 
+}
+
+.min-order {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 60%;
+  line-height: 150%; 
+}
+
+.servicesN {
+  grid-area: special;
+  width: 250px;
+  height: 250px;
+  background-color: #E0FB52;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicesNH {
+  margin-bottom: 7%;
+  color: #000;
+  font-size: 140%;
+  font-weight: 600;
+  line-height: 130%;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.servicesNC{
+  color: #000;
+  font-size: 140%;
+  font-weight: 500;
+  line-height: 130%;
+  text-align: center;
+}
+
+.worker{
+  color: #000;
+  line-height: 130%;
+  font-weight: 600;
+}
+
+.serviceForm{
+  margin: 0;
+  color: #000;
+  font-weight: 500;
+  line-height: 130%;
+  text-align: center;
+}
+
+.addedServices{
+  font-size: 130%;
+  font-family: Manrope;
+  margin-top: 10%;
+  margin-left: 0%;
+}
+ 
+button{
+	font-family: Manrope;
+}

@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  </style>
+</head>
+
+<body >
+<header><h2> НАШИ УСЛУГИ</h2></header>
+      <div class="container">                
+    <div id="content" class="">    
+	
+    <div class="services">
+        <div class="servicesP">
+            <div class="servicesPImg">Укладка напольных <br>покрытий</div>
+			
+            <div class="servicesVid">
+             <div class="addedServices">
+		<form id="serviceForm">
+                        <label for="serviceVN">Название услуги:</label>
+                        <input type="text" id="serviceVN" name="serviceVN" required><br>
+
+                        <label for="serviceVC">Цена (₽):</label>
+                        <input type="number" id="serviceVC" name="serviceVC" required><br>
+
+                        <button type="submit">Добавить услугу</button>
+                    </form>
+
+                    <div id="addedServices">
+                        <!-- Сюда будут добавляться все добавленные услуги -->
+                    </div> 
+		</div>
+                <div class="servicesV">
+                    <div class="servicesVN long-type">Дополнительные работы: вырез под&nbsp;трубы, установка порогов, подпил дверного полотна&nbsp;и&nbsp;т.д.</div>
+                    <div class="servicesVL"></div>
+                    <div class="servicesVC long-type">Обговаривается отдельно</div>
+                </div> 
+					
+            </div>
+
+            <div class="servicesI">
+                <span class="zakaz">* Минимальный заказ 8 000 ₽. Выезд консультация на объект по договоренности.</span>
+                <span class="worker">Специалист по укладке пола: <nobr>+7 (925) 514 52 68</nobr> Олег Дмитриевич</span>
+            </div>
+			<div class="servicesN">
+					<span class="servicesNH">Скидка на&nbsp;работу при&nbsp;покупке в&nbsp;нашем магазине</span>
+					<span class="servicesNC">10 %</span>
+                </div>
+				
+
+        </div>
+		
+		</div>
+		
+		</div>
+				
+		</div>
+		
+    <script>
+       
+        const serviceForm = document.getElementById('serviceForm');
+        const addedServices = document.getElementById('addedServices');
+
+        serviceForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const serviceVN = document.getElementById('serviceVN').value;
+            const serviceVC = document.getElementById('serviceVC').value;
+
+            const serviceItem = document.createElement('div');
+           serviceItem.innerHTML = '<span class="servicesVN">' + serviceVN + '</span>' + '<span class="servicesVL">_____________________</span>' + '<span class="servicesVC">' + serviceVC + ' ₽</span>';
+            addedServices.appendChild(serviceItem);
+
+            let services = JSON.parse(localStorage.getItem('services')) || [];
+            services.push({name: serviceVN, price: serviceVC});
+            localStorage.setItem('services', JSON.stringify(services));
+
+            document.getElementById('serviceVN').value = '';
+            document.getElementById('serviceVC').value = '';
+        });
+
+        let storedServices = JSON.parse(localStorage.getItem('services')) || [];
+        storedServices.forEach(function(service) {
+    const serviceItem = document.createElement('div');
+    // Используйте service.name и service.price
+    serviceItem.innerHTML = '<span class="servicesVN">' + service.name + '</span>' + '<span class="servicesVL">_____________________</span>' + '<span class="servicesVC">' + service.price + ' ₽</span>';
+    addedServices.appendChild(serviceItem);
+});
+ 
+  const clearButton = document.createElement('button');
+  clearButton.textContent = 'Удалить все услуги';
+  clearButton.addEventListener('click', function() {
+    addedServices.innerHTML = '';
+
+    localStorage.removeItem('services');
+  });
+
+  serviceForm.appendChild(clearButton);
+    </script>
+</body>
+<footer>
+</footer>
+</html>
